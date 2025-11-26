@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayashi Manodaya | Full-Stack Developer </title>
+    <meta name="description"
+        content="Professional portfolio of Mayashi Manodaya, a Full-Stack Developer and Data Science student specializing in web development and UAV design.">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <style>
+        :root {
+            --color-primary: 99, 102, 241;
+            /* indigo-500 */
+            --color-secondary: 167, 139, 250;
+            /* purple-400 */
+            --color-accent: 56, 189, 248;
+            /* cyan-400 */
+            --color-dark: 17, 24, 39;
+            /* gray-900 */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: rgb(var(--color-dark));
+            color: rgb(229, 231, 235);
+            overflow-x: hidden;
+        }
+
+        /* Animated Gradient Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
+            background: linear-gradient(-45deg,
+                    rgba(var(--color-dark), 0.9) 0%,
+                    rgba(30, 30, 60, 0.9) 25%,
+                    rgba(20, 20, 50, 0.9) 50%,
+                    rgba(10, 10, 40, 0.9) 75%,
+                    rgba(var(--color-dark), 0.9) 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Floating Particles Animation */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(var(--color-accent), 0.5);
+            box-shadow: 0 0 10px rgba(var(--color-accent), 0.5),
+                0 0 20px rgba(var(--color-accent), 0.3),
+                0 0 30px rgba(var(--color-accent), 0.1);
+            animation: floatParticle linear infinite;
+            z-index: -2;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Meteor/Comet Animation */
+        .meteor {
+            position: absolute;
+            width: 300px;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(56, 189, 248, 0.1), rgba(56, 189, 248, 0.8));
+            transform: rotate(-45deg);
+            animation: meteorFall linear infinite;
+            z-index: -1;
+            filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.8));
+        }
+
+        .meteor::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: rgba(56, 189, 248, 1);
+            box-shadow: 0 0 10px 2px rgba(56, 189, 248, 0.8);
+            top: 0;
+            left: 0;
+        }
+
+        @keyframes meteorFall {
+            0% {
+                top: -100px;
+                right: -100px;
+                opacity: 1;
+            }
+
+            70% {
+                opacity: 1;
+            }
+
+            100% {
+                top: calc(100vh + 100px);
+                right: calc(100vw + 100px);
+                opacity: 0;
+            }
+        }
+
+        /* Glassmorphism effect */
+        .glassmorphism {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        /* Gradient text */
+        .text-gradient {
+            background: linear-gradient(135deg, rgb(var(--color-primary)), rgb(var(--color-secondary)));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, rgb(var(--color-primary)), rgb(var(--color-secondary)));
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(var(--color-primary), 0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid rgb(var(--color-primary));
+            color: rgb(var(--color-primary));
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: rgb(var(--color-primary));
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, rgb(var(--color-primary)), rgb(var(--color-secondary)));
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Cards */
+        .project-card {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(31, 41, 55, 0.8);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+
+        /* Skill bars */
+        .skill-container {
+            width: 100%;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: rgb(var(--color-accent));
+        }
+
+        .skill-percent {
+            font-weight: 500;
+            color: #9ca3af;
+        }
+
+        .skill-bar {
+            height: 8px;
+            width: 100%;
+            background-color: #374151;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, rgb(var(--color-primary)), rgb(var(--color-secondary)));
+            transition: width 1s ease-in-out;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #374151;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: rgb(var(--color-dark));
+            border: 4px solid rgb(var(--color-accent));
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid #374151;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #374151;
+        }
+
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid #374151;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #374151 transparent transparent;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: rgb(31, 41, 55);
+            position: relative;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Typing animation */
+        .name-typing {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: rgb(var(--color-accent));
+        }
+
+        /* Roles Typing Animation */
+        .roles-typing {
+            min-height: 2rem;
+            display: inline-block;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .role-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background: rgb(var(--color-accent));
+            margin-left: 3px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Social icons */
+        .social-icon {
+            transition: all 0.3s ease;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(31, 41, 55, 0.8);
+            color: rgb(229, 231, 235);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px) scale(1.1);
+            background: linear-gradient(135deg, rgb(var(--color-primary)), rgb(var(--color-secondary)));
+            color: white !important;
+        }
+
+        /* Form inputs */
+        input,
+        textarea {
+            transition: all 0.3s ease;
+            background-color: rgba(31, 41, 55, 0.9);
+            border-color: #374151;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: rgb(var(--color-secondary));
+            box-shadow: 0 0 0 3px rgba(var(--color-secondary), 0.3);
+        }
+
+        /* Section headings */
+        .section-heading {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(90deg, rgb(var(--color-primary)), rgb(var(--color-secondary)));
+            border-radius: 2px;
+        }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 21px;
+            }
+
+            .left::before,
+            .right::before {
+                left: 60px;
+                border: medium solid #374151;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent #374151 transparent transparent;
+            }
+
+            .left::after,
+            .right::after {
+                left: 21px;
+            }
+
+            .right {
+                left: 0%;
+            }
+
+            .roles-typing {
+                font-size: 1rem;
+            }
+        }
+
+        /* Floating animation */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+
+    <!-- Floating Particles and Meteors -->
+    <div class="particles-container" id="particles-container"></div>
+
+    <!-- Navigation -->
+    <nav class="glassmorphism fixed w-full z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-gradient">Mayashi Manodaya</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-200 hover:text-cyan-400 transition">Home</a>
+                    <a href="#about" class="nav-link text-gray-200 hover:text-cyan-400 transition">About</a>
+                    <a href="#education" class="nav-link text-gray-200 hover:text-cyan-400 transition">Education</a>
+                    <a href="#skills" class="nav-link text-gray-200 hover:text-cyan-400 transition">Skills</a>
+                    <a href="#projects" class="nav-link text-gray-200 hover:text-cyan-400 transition">Projects</a>
+                    <a href="#contact" class="nav-link text-gray-200 hover:text-cyan-400 transition">Contact</a>
+                </div>
+                <button class="md:hidden p-2" id="mobile-menu-button" aria-label="Toggle mobile menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glassmorphism">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home"
+                    class="block px-3 py-2 rounded hover:bg-gray-700 text-gray-200 hover:text-cyan-400 transition">Home</a>
+                <a href="#about"
+                    class="block px-3 py-2 rounded hover:bg-gray-700 text-gray-200 hover:text-cyan-400 transition">About</a>
+                <a href="#education"
+                    class="block px-3 py-2 rounded hover:bg-gray-700 text-gray-200 hover:text-cyan-400 transition">Education</a>
+                <a href="#skills"
+                    class="block px-3 py-2 rounded hover:bg-gray-700 text-gray-200 hover:text-cyan-400 transition">Skills</a>
+                <a href="#projects"
+                    class="block px-3 py-2 rounded hover:bg-gray-700 text-gray-200 hover:text-cyan-400 transition">Projects</a>
+                <a href="#contact"
+                    class="block px-3 py-2 rounded hover:bg-gray-700 text-gray-200 hover:text-cyan-400 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2" data-aos="fade-right">
+                    <!-- Name Typing Effect -->
+                    <div id="name-typing" class="name-typing"></div>
+
+                    <!-- Animated Roles -->
+                    <div class="roles-typing" id="roles-typing"></div>
+
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+                        <span class="text-gradient">Full-Stack</span><br>
+                        Developer &<br>
+                        <span class="text-gradient">Software Engineer</span>
+                    </h1>
+                    <p class="text-xl mb-8 text-gray-300 max-w-lg" id="typing-effect"></p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="btn-primary px-8 py-3 rounded-lg font-medium">Contact Me</a>
+                        <a href="#projects" class="btn-outline px-8 py-3 rounded-lg font-medium">View Projects</a>
+                        <a href="Mayashi_Manodaya.pdf" download="Mayashi_Manodaya_CV.pdf"
+                            class="btn-outline px-8 py-3 rounded-lg font-medium flex items-center">
+                            Download CV <i class="fas fa-download ml-2"></i>
+                        </a>
+                    </div>
+                    <div class="mt-12 flex flex-wrap gap-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-indigo-900 flex items-center justify-center mr-3">
+                                <i class="fas fa-code text-cyan-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <!--<div class="text-2xl font-bold text-gray-200">5+</div> -->
+                                <div class="text-sm text-gray-300">Projects</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-indigo-900 flex items-center justify-center mr-3">
+                                <i class="fas fa-user-graduate text-cyan-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-gray-200">3<sup>rd</sup> Year</div>
+                                <div class="text-sm text-gray-300">Software Engineer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center" data-aos="fade-left">
+                    <div class="relative floating">
+                        <div
+                            class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-cyan-400/30 shadow-xl">
+                            <img src="cv photo1.png" alt="Mayashi Manodaya" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-5 -right-5 bg-gray-800 p-3 rounded-lg shadow-lg">
+                            <!-- <div class="text-sm font-medium text-gray-300">Currently working on</div> -->
+                            <!-- <div class="text-cyan-400 font-bold">AI-Powered Drones</div>
+                        </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-gray-800/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4 section-heading">About Me</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto">Get to know the person behind the code</p>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2" data-aos="fade-right">
+                    <div class="relative">
+                        <div
+                            class="w-full h-96 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl overflow-hidden shadow-xl">
+                            <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                                alt="Working on laptop" class="w-full h-full object-cover opacity-90">
+                        </div>
+                        <div class="absolute -bottom-5 -left-5 bg-gray-800 p-4 rounded-lg shadow-lg w-3/4">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-indigo-900 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-medal text-cyan-400 text-xl"></i>
+                                </div>
+                                <div>
+                                    <!--<div class="font-bold text-gray-200">1+ Years Experience</div> -->
+                                    <div class="text-sm text-gray-300">Full-Stack Development</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2" data-aos="fade-left">
+                    <h3 class="text-2xl font-semibold mb-6 text-gradient">Who Am I?</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        I’m Mayashi Manodaya, a Code Enthusiast & Full-Stack Developer
+                        By day, I’m a 3rd-year Information Technology student at SLIIT, and by night (or any free
+                        moment, really), I’m a passionate Full-Stack Developer crafting digital experiences that blend
+                        creativity with functionality. My keyboard is my canvas, and JavaScript, Python, and a sprinkle
+                        of magic are my brushes.
+                    </p>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        I thrive in the dynamic world of React, Node.js, Express, and MongoDB, building everything from
+                        sleek front-end interfaces to
+                        robust back-end systems. Alongside development, I am passionate about UI/UX design—crafting
+                        intuitive, visually engaging, and
+                        user-centered digital experiences. Whether it’s a RESTful API,
+                        a real-time web app, or a complete UI/UX redesign, I love turning ideas into scalable,
+                        efficient, and user-friendly solutions.
+                    </p>
+                    <p class="text-gray-300 mb-8 leading-relaxed">
+                        Beyond code, I’m a problem-solver at heart—debugging is my superpower, and clean architecture is
+                        my obsession. When I’m not in VS Code, you’ll find me in tech communities, hackathons, or
+                        geeking out over the latest frameworks. </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-indigo-900 flex items-center justify-center mr-3">
+                                <i class="fas fa-map-marker-alt text-cyan-400"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-300">Location</div>
+                                <div class="font-medium">Polgasowita, Sri Lanka</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-indigo-900 flex items-center justify-center mr-3">
+                                <i class="fas fa-envelope text-cyan-400"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-300">Email</div>
+                                <div class="font-medium">mayashikodikara@gmail.com</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4 section-heading">My Experience</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto">My academic journey and professional certifications</p>
+            </div>
+
+            <div class="timeline" data-aos="fade-up">
+                <!-- Education Item 1 -->
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023 - Present</div>
+                        <h3 class="timeline-title">BSc (Hons) in Information Technology</h3>
+                        <h4 class="text-cyan-400 mb-2">Sri Lanka Institute of Information Technology (SLIIT)</h4>
+                        <p class="timeline-desc">
+                            Specializing in Information Technology with coursework covering software development,
+                            database systems, networking,
+                            and user interface/user experience (UI/UX) design.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Education Item 2 -->
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2021</div>
+                        <h3 class="timeline-title">Advanced Level Examination</h3>
+                        <h4 class="text-cyan-400 mb-2">Dharmasena Attygalle Balika Vidyalaya</h4>
+                        <p class="timeline-desc">
+                            Secured two C grades and one S grade in Combined Mathematics, Information Technology,
+                            and Physics at the GCE Advanced Level.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Certification Item 1 -->
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024</div>
+                        <h3 class="timeline-title">Object-Oriented Programming in C++</h3>
+                        <h4 class="text-cyan-400 mb-2">Coursera</h4>
+                        <p class="timeline-desc">
+                            Demonstrated proficiency in designing, developing, and debugging object-oriented
+                            applications using C++.
+                            Gained expertise in OOP concepts such as classes, inheritance, polymorphism, encapsulation,
+                            and efficient memory management.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Certification Item 2 -->
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023</div>
+                        <h3 class="timeline-title">Python for Data Science, AI & Development</h3>
+                        <h4 class="text-cyan-400 mb-2">Coursera</h4>
+                        <p class="timeline-desc">
+                            Demonstrated proficiency in developing, deploying, and debugging Python-based applications
+                            for data science, AI, and software development.
+                            Gained expertise in Python libraries, machine learning frameworks, data processing
+                            pipelines, and AI model deployment
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-800/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4 section-heading">Technical Skills</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto">My proficiency across different technology stacks and tools
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Frontend Skills -->
+                <div class="glassmorphism p-8 rounded-xl" data-aos="fade-right">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-lg bg-indigo-900 flex items-center justify-center mr-4">
+                            <i class="fas fa-laptop-code text-cyan-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gradient">Frontend Development</h3>
+                    </div>
+
+                    <div class="skill-container">
+                        <div class="skill-info">
+                            <span class="skill-name">React.js</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-container">
+                        <div class="skill-info">
+                            <span class="skill-name">Next.js</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-container">
+                        <div class="skill-info">
+                            <span class="skill-name">TypeScript</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-container">
+                        <div class="skill-info">
+                            <span class="skill-name">Tailwind CSS</span>
+                            <span class="skill-percent">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend Skills -->
+                <div class="glassmorphism p-8 rounded-xl" data-aos="fade-left">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-lg bg-indigo-900 flex items-center justify-center mr-4">
+                            <i class="fas fa-server text-cyan-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gradient">Backend Development</h3>
+                    </div>
+
+                    <div class="skill-container">
+                        <div class="skill-info">
+                            <span class="skill-name">Node.js</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-container">
+                        <div class="skill-info">
+                            <span class="skill-name">Express</span>
+                            <span class="skill-percent">88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-container">
+                        <div class="skill-info">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-container">
+                        <div class="skill-info">
+                            <span class="skill-name">Java</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-container">
+                        <div class="skill-info">
+                            <span class="skill-name">PHP</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Science Skills -->
+                <div class="glassmorphism p-8 rounded-xl" data-aos="fade-right">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-lg bg-indigo-900 flex items-center justify-center mr-4">
+                            <i class="fas fa-chart-bar text-cyan-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gradient">Information Technology</h3>
+                    </div>
+
+                    <div class="skill-container">
+                        <div class="skill-info">
+                            <span class="skill-name">Python (Pandas, NumPy)</span>
+                            <span class="skill-percent">92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 92%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-container">
+                        <div class="skill-info">
+                            <span class="skill-name">Machine Learning</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-container">
+                        <div class="skill-info">
+                            <span class="skill-name">Data Visualization</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-container">
+                        <div class="skill-info">
+                            <span class="skill-name">SQL</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programming Languages -->
+                <div class="glassmorphism p-8 rounded-xl" data-aos="fade-right">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-lg bg-indigo-900 flex items-center justify-center mr-4">
+                            <i class="fas fa-chart-bar text-cyan-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gradient">Programming Languages</h3>
+                    </div>
+
+                    <div class="skill-container">
+                        <div class="skill-info">
+                            <span class="skill-name">Java Script</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 92%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-container">
+                        <div class="skill-info">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-container">
+                        <div class="skill-info">
+                            <span class="skill-name">Java</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-container">
+                        <div class="skill-info">
+                            <span class="skill-name">C</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-container">
+                        <div class="skill-info">
+                            <span class="skill-name">C++</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Skills -->
+                <div class="glassmorphism p-8 rounded-xl" data-aos="fade-left">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-lg bg-indigo-900 flex items-center justify-center mr-4">
+                            <i class="fas fa-tools text-cyan-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gradient">Other Technologies</h3>
+                    </div>
+
+                    <div class="skill-container">
+                        <div class="skill-info">
+                            <span class="skill-name">Figma</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-container">
+                        <div class="skill-info">
+                            <span class="skill-name">Git/GitHub</span>
+                            <span class="skill-percent">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-container">
+                        <div class="skill-info">
+                            <span class="skill-name">AWS</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+
+                    <!--<div class="skill-container">
+                        <div class="skill-info">
+                            <span class="skill-name">ROS (Robot OS)</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4 section-heading">Featured Projects</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto">A selection of my most significant projects showcasing my
+                    skills across different domains.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="h-48 relative overflow-hidden">
+                        <!-- Image -->
+                        <img src="maya2.jpg" alt="Project Image" class="w-full h-full object-cover">
+
+                        <!-- Hover Overlay -->
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                            <a href="#"
+                                class="opacity-0 hover:opacity-100 transform translate-y-4 hover:translate-y-0 transition-all duration-300 px-6 py-3 bg-white text-purple-600 rounded-lg font-medium">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Real-time Parking Space Management System with IOT</h3>
+                        <p class="text-gray-300 mb-4">A comprehensive IoT-powered real-time Parking Space Management
+                            System with sensor-based slot detection,
+                            dynamic availability tracking,user reservation capabilities, and secure payment handling..
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-3 py-1 bg-indigo-900 rounded-full text-cyan-400">React</span>
+                            <span class="text-xs px-3 py-1 bg-indigo-900 rounded-full text-cyan-400">Node.js</span>
+                            <span class="text-xs px-3 py-1 bg-indigo-900 rounded-full text-cyan-400">MongoDB</span>
+                            <span class="text-xs px-3 py-1 bg-indigo-900 rounded-full text-cyan-400">Python</span>
+                            <span class="text-xs px-3 py-1 bg-indigo-900 rounded-full text-cyan-400">Firebase Realtime
+                                Database</span>
+                            <span class="text-xs px-3 py-1 bg-indigo-900 rounded-full text-cyan-400">Internet of Things
+                                (IoT)</span>
+                            <span class="text-xs px-3 py-1 bg-indigo-900 rounded-full text-cyan-400">Stripe API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="h-48 relative overflow-hidden">
+                        <!-- Image -->
+                        <img src="maya.jpg" alt="Project Image" class="w-full h-full object-cover">
+
+                        <!-- Hover Overlay -->
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                            <a href="#"
+                                class="opacity-0 hover:opacity-100 transform translate-y-4 hover:translate-y-0 transition-all duration-300 px-6 py-3 bg-white text-purple-600 rounded-lg font-medium">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">E-commerce platform UI/UX Redesign</h3>
+                        <p class="text-gray-300 mb-4">
+                            A modern and intuitive UI/UX redesign for an e-commerce platform, focusing on improved
+                            navigation, enhanced user flow, and visually engaging product interfaces.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-3 py-1 bg-indigo-900 rounded-full text-pink-400">Figma</span>
+                            <span class="text-xs px-3 py-1 bg-indigo-900 rounded-full text-pink-400">UI/UX</span>
+                            <span class="text-xs px-3 py-1 bg-indigo-900 rounded-full text-pink-400">Prototyping</span>
+                            <span class="text-xs px-3 py-1 bg-indigo-900 rounded-full text-pink-400">User
+                                Research</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Project 3 -->
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="h-48 relative overflow-hidden">
+                        <!-- Image -->
+                        <img src="maya3.jpg" alt="Project Image" class="w-full h-full object-cover">
+
+                        <!-- Hover Overlay -->
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                            <a href="#"
+                                class="opacity-0 hover:opacity-100 transform translate-y-4 hover:translate-y-0 transition-all duration-300 px-6 py-3 bg-white text-purple-600 rounded-lg font-medium">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Photography Event Management System</h3>
+                        <p class="text-gray-300 mb-4">A comprehensive Photography Event Management System with event
+                            scheduling, client and photographer management, gallery handling,
+                            and secure photo distribution.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-3 py-1 bg-indigo-900 rounded-full text-cyan-400">PHP</span>
+                            <span class="text-xs px-3 py-1 bg-indigo-900 rounded-full text-cyan-400">HTML</span>
+                            <span class="text-xs px-3 py-1 bg-indigo-900 rounded-full text-cyan-400">CSS</span>
+                            <span class="text-xs px-3 py-1 bg-indigo-900 rounded-full text-cyan-400">JavaScript</span>
+                            <span class="text-xs px-3 py-1 bg-indigo-900 rounded-full text-cyan-400"> MVC
+                                architecture</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="https://www.linkedin.com/in/mayashi-kodikara-54a5b226a/" target="_blank"
+                    class="inline-flex items-center px-6 py-3 border border-indigo-600 text-cyan-400 rounded-lg hover:bg-gray-800 transition font-medium">
+                    View All Projects
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-800/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4 section-heading">Get In Touch</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto">Have a project in mind or want to discuss potential
+                    opportunities? Feel free to reach out!</p>
+            </div>
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2" data-aos="fade-right">
+                    <h3 class="text-2xl font-semibold mb-6 text-gradient">Contact Information</h3>
+
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 bg-indigo-900 rounded-full text-cyan-400 flex-shrink-0">
+                                <i class="fas fa-envelope text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-lg">Email</h4>
+                                <p class="text-gray-300">mayashikodikara@gmail.com</p>
+                                <a href="mailto:mayashikodikara@gmail.com"
+                                    class="text-cyan-400 text-sm mt-1 inline-block hover:underline">Send a
+                                    message</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 bg-indigo-900 rounded-full text-cyan-400 flex-shrink-0">
+                                <i class="fas fa-phone text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-lg">Phone</h4>
+                                <p class="text-gray-300">0716387179</p>
+                                <a href="tel:+94768328443"
+                                    class="text-cyan-400 text-sm mt-1 inline-block hover:underline">Call me</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 bg-indigo-900 rounded-full text-cyan-400 flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-lg">Location</h4>
+                                <p class="text-gray-300">Polgasowita, Sri Lanka</p>
+                                <a href="https://maps.google.com" target="_blank"
+                                    class="text-cyan-400 text-sm mt-1 inline-block hover:underline">View on map</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="mt-12">
+                        <h4 class="font-medium text-lg mb-6">Connect with me</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="social-icon hover:text-white">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                            <a href="#" class="social-icon hover:text-white">
+                                <i class="fab fa-linkedin-in text-xl"></i>
+                            </a>
+                            <a href="#" class="social-icon hover:text-white">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="social-icon hover:text-white">
+                                <i class="fab fa-stack-overflow text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Information (Right Side) -->
+                <div class="lg:w-3/5" data-aos="fade-left">
+                    <div class="contact-card p-8 rounded-2xl h-full flex flex-col justify-center">
+                        <h3 class="text-2xl font-semibold mb-6 text-gradient text-center">Let's Work Together</h3>
+                        <p class="text-gray-300 text-center mb-8">
+                            I'm always interested in new challenges and opportunities. Whether you have a project in
+                            mind, need help with development, or just want to connect, feel free to reach out through
+                            any of the contact methods provided.
+                        </p>
+                        <div class="flex justify-center">
+                            <a href="mailto:mayashikodikara@gmail.com"
+                                class="btn-primary px-8 py-3 rounded-lg font-medium flex items-center">
+                                <i class="fas fa-envelope mr-2"></i>
+                                Send an Email
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--<div class="md:w-1/2" data-aos="fade-left">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block mb-2 text-sm font-medium text-gray-300">Your Name *</label>
+                            <input type="text" id="name" required class="w-full px-4 py-3 rounded-lg border border-gray-600 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-300">Your Email *</label>
+                            <input type="email" id="email" required class="w-full px-4 py-3 rounded-lg border border-gray-600 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block mb-2 text-sm font-medium text-gray-300">Subject *</label>
+                            <input type="text" id="subject" required class="w-full px-4 py-3 rounded-lg border border-gray-600 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block mb-2 text-sm font-medium text-gray-300">Your Message *</label>
+                            <textarea id="message" rows="5" required class="w-full px-4 py-3 rounded-lg border border-gray-600 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary px-8 py-3 rounded-lg hover:bg-indigo-700 transition w-full font-medium">
+                            Send Message
+                            <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>-->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-gray-900 text-gray-400">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="text-2xl font-bold text-gradient mb-2">Mayashi Manodaya</div>
+                    <p class="text-sm">Innovative solutions through code and data.</p>
+                </div>
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex space-x-6 mb-4">
+                        <a href="#home" class="hover:text-cyan-400 transition">Home</a>
+                        <a href="#about" class="hover:text-cyan-400 transition">About</a>
+                        <a href="#education" class="hover:text-cyan-400 transition">Education</a>
+                        <a href="#skills" class="hover:text-cyan-400 transition">Skills</a>
+                        <a href="#projects" class="hover:text-cyan-400 transition">Projects</a>
+                        <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
+                    </div>
+                    <p class="text-sm">&copy; 2023 Mayashi Manodaya. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.innerHTML = mobileMenu.classList.contains('hidden') ?
+                '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Name Typing Effect
+        new TypeIt('#name-typing', {
+            speed: 60,
+            loop: true
+        })
+            .type("Hi, I'm Mayashi Manodya.")
+            .pause(500)
+            .delete()
+            .go();
+
+        // Description Typing Effect
+        new TypeIt('#typing-effect', {
+            speed: 45,
+            startDelay: 4500,
+            loop: true
+        })
+            .type("Software Engineer ")
+            .pause(2000)
+            .delete()
+            .type("UI/UX Designer")
+            .pause(2000)
+            .delete()
+            .type("Database Designer")
+            .pause(2000)
+            .delete()
+            .type("Mobile App Developer")
+            .pause(2000)
+            .delete()
+            .type("Full-Stack Developer")
+            .pause(2000)
+            .delete()
+
+            .go();
+        // Animated Roles/Titles
+        const roles = [
+            "BSc (Hons) in Information Technology Specialising in Information Technology"
+
+
+        ];
+
+        let currentRoleIndex = 0;
+        const rolesElement = document.getElementById('roles-typing');
+
+        function typeRole() {
+            let currentText = '';
+            let currentRole = roles[currentRoleIndex];
+            let i = 0;
+            let isDeleting = false;
+
+            function type() {
+                if (i < currentRole.length && !isDeleting) {
+                    currentText += currentRole.charAt(i);
+                    i++;
+                    rolesElement.innerHTML = currentText + '<span class="role-cursor"></span>';
+                    setTimeout(type, 100);
+                } else if (currentText.length > 0 && isDeleting) {
+                    currentText = currentText.substring(0, currentText.length - 1);
+                    rolesElement.innerHTML = currentText + '<span class="role-cursor"></span>';
+                    setTimeout(type, 50);
+                } else {
+                    isDeleting = !isDeleting;
+                    if (!isDeleting) {
+                        currentRoleIndex = (currentRoleIndex + 1) % roles.length;
+                    }
+                    setTimeout(type, isDeleting ? 1500 : 500);
+                }
+            }
+
+            type();
+        }
+
+        // Start the role typing animation
+        typeRole();
+
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles-container');
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+
+                // Random size between 2px and 6px
+                const size = Math.random() * 4 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.bottom = `-${size}px`;
+
+                // Random animation duration between 10s and 20s
+                const duration = Math.random() * 10 + 10;
+                particle.style.animationDuration = `${duration}s`;
+
+                // Random delay
+                particle.style.animationDelay = `${Math.random() * 10}s`;
+
+                container.appendChild(particle);
+            }
+        }
+
+        // Create falling meteors
+        function createMeteors() {
+            const container = document.getElementById('particles-container');
+            const meteorCount = 5;
+
+            for (let i = 0; i < meteorCount; i++) {
+                const meteor = document.createElement('div');
+                meteor.classList.add('meteor');
+
+                // Random position
+                meteor.style.top = `${Math.random() * 50}%`;
+                meteor.style.right = `${Math.random() * 50}%`;
+
+                // Random width between 150px and 400px
+                const width = Math.random() * 250 + 150;
+                meteor.style.width = `${width}px`;
+
+                // Random animation duration between 5s and 15s
+                const duration = Math.random() * 10 + 5;
+                meteor.style.animationDuration = `${duration}s`;
+
+                // Random delay
+                meteor.style.animationDelay = `${Math.random() * 10}s`;
+
+                container.appendChild(meteor);
+            }
+        }
+
+        // Initialize particles and meteors when the page loads
+        createParticles();
+        createMeteors();
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // GSAP animations
+        gsap.from("nav", {
+            y: -50,
+            opacity: 0,
+            duration: 1,
+            ease: "power3.out"
+        });
+
+        gsap.from("#home h1", {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            delay: 0.3,
+            ease: "power3.out"
+        });
+
+        gsap.from("#home p", {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            delay: 0.6,
+            ease: "power3.out"
+        });
+
+        gsap.from("#home a", {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            delay: 0.9,
+            ease: "power3.out",
+            stagger: 0.2
+        });
+
+        // Animate skill bars on scroll
+        const skillBars = document.querySelectorAll('.skill-progress');
+
+        const animateSkillBars = () => {
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        };
+
+        // Create intersection observer for skill bars
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkillBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observe skills section
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+
+        // Form submission
+        const contactForm = document.querySelector('#contact form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // Here you would typically send the form data to a server
+                alert('Thank you for your message! I will get back to you soon.');
+                contactForm.reset();
+            });
+        }
+
+        // CV Download Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const downloadBtn = document.querySelector('a[download]');
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', function (e) {
+                    // You can add tracking or confirmation here if needed
+                    console.log('CV download initiated');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
